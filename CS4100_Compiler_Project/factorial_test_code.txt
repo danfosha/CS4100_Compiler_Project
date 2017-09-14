@@ -1,6 +1,0 @@
- int i, n, product;
- product = 1;
- n = 10;
- for (i = 1; i <= n; i++)
- product = product * i;
- println(i);

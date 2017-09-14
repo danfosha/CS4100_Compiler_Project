@@ -29,6 +29,7 @@ namespace CS4100_Compiler_Project
         }
 
         QuadStruct[] QuadTableArray = new QuadStruct[100];
+       
         // The QuadTable is different from the SymbolTable in its access and contents.Each indexed entry row
         //  consists of four int values representing an opcode and three operands.  The methods needed are:
 
@@ -78,7 +79,7 @@ namespace CS4100_Compiler_Project
             return code;
         }
 
-        void PrintQuadTable()
+        public void PrintQuadTable()
         //Prints the currently used contents of the Quad table in neat tabular format
         {
             Console.WriteLine("OpCode" + "\t" + "Op1" + "\t" + "Op2" + "\t" + "Op3");

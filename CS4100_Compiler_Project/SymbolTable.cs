@@ -131,7 +131,7 @@ namespace CS4100_Compiler_Project
             SymbolTableArray[index] = updated;
         }
         
-        void PrintSymbolTable()
+        public void PrintSymbolTable()
         //// Prints the utilized rows of the symbol table in neat tabular format, showing only
         //// the value field which is active for that row
         {

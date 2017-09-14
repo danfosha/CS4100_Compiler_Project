@@ -105,7 +105,7 @@ namespace CS4100_Compiler_Project
 
         
 
-        void PrintReserveTable()
+        public void PrintReserveTable()
         // Prints the currently used contents of the Reserve table in neat tabular format
         {
             Console.WriteLine("Name" + "\t" + "Code");
