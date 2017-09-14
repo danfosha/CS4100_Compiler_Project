@@ -15,6 +15,10 @@ namespace CS4100_Compiler_Project
             //BuildSymbolTable();
             //InterpretQuads(QuadTable, SymbolTable, True);
             //InterpretQuads(QuadTable, SymbolTable, true);
+
+
+
+           
         }
     }
 }

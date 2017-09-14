@@ -1,0 +1,6 @@
+int [5] scores = [73, 65, 89, 93, 80];
+int i, sum;
+sum=0;
+for (i=0; i<25, i++)
+sum=sum + scores[i];
+println(sum);
