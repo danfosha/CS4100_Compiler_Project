@@ -74,7 +74,7 @@ namespace CS4100_Compiler_Project
         // Returns the mnemonic string (‘ADD’, ‘PRINT’, etc.) associated with the opcode parameter. Used during interpreter
         // ‘TRACE’ mode to print out the stored opcodes in readable format. Use the ReserveTable ADT to implement this.
         {
-            string code = ReserveTableClass.LookupCode1(opcode);
+            string code = ReserveTableClass.LookupCode(opcode);
             return code;
         }
 
