@@ -1,0 +1,5 @@
+int i, product, n;
+product = 1; n=10;
+for (i=1; i<=1; i++)
+	product = product *i;
+println(i);
