@@ -37,6 +37,17 @@ namespace CS4100_Compiler_Project
         // Create a new, empty QuadTable ready for data to be added, with the specified number of rows(size).
         {
             QuadStruct[] QuadTableArray = new QuadStruct[100];
+			QuadStruct[0]=(5,7,0,6);
+			QuadStruct[1]=(5,7,0,5);
+			QuadStruct[2]=(3,5,8,9);
+			QuadStruct[3]=(10,9,0,8);
+			QuadStruct[4]=(7,0,5,10);
+			QuadStruct[5]=(4,6,10,6);
+			QuadStruct[6]=(4,5,11,5);
+			QuadStruct[7]=(14,6,0,0);
+			QuadStruct[8]=(16,0,0,0);
+			QuadStruct[9]=(0,0,0,2);
+			
         }
 
         int NextQuad()
