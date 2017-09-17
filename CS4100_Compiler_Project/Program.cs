@@ -10,40 +10,52 @@ namespace CS4100_Compiler_Project
     {
         static void Main(string[] args)
         {
-            // int MaxQuad = 1000;
-            QuadTable Quad1 = new QuadTable();
-            ReserveTableClass Reserve1 = new ReserveTableClass();
-            SymbolTable SymbolTable1 = new SymbolTable();
+            int MaxQuad = 100;
+            QuadTable Quads = new QuadTable(MaxQuad);
+            ReserveTableClass Reserves = new ReserveTableClass();
+            SymbolTable Symbols = new SymbolTable(MaxQuad);
 
-            BuildQuads(Quad1, Reserve1);
-            BuildSymbolTable(SymbolTable1);
+            BuildQuads(Quads, Reserves);
+            BuildSymbolTable(Symbols);
 
-            
-            InterpretQuads(Quad1, SymbolTable1, true);
-            InterpretQuads(Quad1, SymbolTable1, false);
+            InterpretQuads(Quads, Symbols, true);
+            InterpretQuads(Quads, Symbols, false);
 			
         }
 
         // these are redundant
-        public static void BuildQuads(QuadTable quad, ReserveTableClass reserve)
+        public static void BuildQuads(QuadTable quads, ReserveTableClass reserve)
         // not taking maxQuad yet
         {
-			quad.AddQuad(5,7,0,6);
-            quad.AddQuad(5,7,0,5);
-            quad.AddQuad(3,5,8,9);
-            quad.AddQuad(10,9,0,8);
-            quad.AddQuad(7,0,5,10);
-            quad.AddQuad(4,6,10,6);
-            quad.AddQuad(4,5,11,5);
-            quad.AddQuad(14,6,0,0);
-            quad.AddQuad(16,0,0,0);
-            quad.AddQuad(0,0,0,2);
-            quad.PrintQuadTable();
+			quads.AddQuad(5,7,0,6);
+            quads.AddQuad(5,7,0,5);
+            quads.AddQuad(3,5,8,9);
+            quads.AddQuad(10,9,0,8);
+            quads.AddQuad(7,0,5,10);
+            quads.AddQuad(4,6,10,6);
+            quads.AddQuad(4,5,11,5);
+            quads.AddQuad(14,6,0,0);
+            quads.AddQuad(16,0,0,0);
+            quads.AddQuad(0,0,0,2);
+            quads.PrintQuadTable();
             reserve.PrintReserveTable();
         }
 
-        private static void BuildSymbolTable(SymbolTable symbolTable)
+        public static void BuildSymbolTable(SymbolTable symbolTable)
         {
+            symbolTable.AddSymbol("scores", SymbolTable.Data_Kind.variable, 73);
+            symbolTable.AddSymbol("$1", SymbolTable.Data_Kind.variable, 65);
+            symbolTable.AddSymbol("$2", SymbolTable.Data_Kind.variable, 89);
+            symbolTable.AddSymbol("$3", SymbolTable.Data_Kind.variable, 93);
+            symbolTable.AddSymbol("$4", SymbolTable.Data_Kind.variable, 80);
+            symbolTable.AddSymbol("i", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("sum", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$1", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$2", SymbolTable.Data_Kind.variable, 5);
+            symbolTable.AddSymbol("$3", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$4", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$5", SymbolTable.Data_Kind.variable, 1);
+
             symbolTable.PrintSymbolTable();
         }
 

@@ -11,8 +11,13 @@ namespace CS4100_Compiler_Project
         // Properties    
         public enum Data_Kind { label, variable, constant }
         public static int numUsed = 0;
+        static int MaxSymbols;
 
-
+        public SymbolTable(int maxSymbols)
+        {
+            MaxSymbols = maxSymbols;            
+        }
+        
         public class Symbol
         {
             //public Symbol() { }
@@ -32,10 +37,8 @@ namespace CS4100_Compiler_Project
 
         }
 
+        public Symbol[] SymbolTableArray = new Symbol[MaxSymbols];
 
-        public Symbol[] SymbolTableArray = new Symbol[100];
-        //List<Symbol> SymbolTableList = new List<Symbol>();
-                
         //Methods
 
         // Adds symbol with given kind and value to the symbol table, automatically setting the correct data_type,
@@ -43,7 +46,7 @@ namespace CS4100_Compiler_Project
         // the index where the symbol was found.
         // These three could be combind, but keeping all three per assignment instructions
 
-        int AddSymbol(String symbol, Data_Kind Kind, int value)
+        public int AddSymbol(String symbol, Data_Kind Kind, int value)
             {
             
             int index = LookupSymbol(symbol);
@@ -54,7 +57,7 @@ namespace CS4100_Compiler_Project
 
             return LookupSymbol(symbol);
         }
-        int AddSymbol(String symbol, Data_Kind Kind, double value)
+        public int AddSymbol(String symbol, Data_Kind Kind, double value)
         {
             int index = LookupSymbol(symbol);
             if (index < 0)
@@ -65,7 +68,7 @@ namespace CS4100_Compiler_Project
             return LookupSymbol(symbol);
         }
 
-        int AddSymbol(String symbol, Data_Kind Kind, String value)
+        public int AddSymbol(String symbol, Data_Kind Kind, String value)
         {
             int index = LookupSymbol(symbol);
             if (index < 0)

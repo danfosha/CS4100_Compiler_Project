@@ -9,6 +9,14 @@ namespace CS4100_Compiler_Project
     class QuadTable
     {
 
+        static int MaxSymbols;
+
+        public QuadTable(int maxSymbols)
+        {
+            MaxSymbols = maxSymbols;
+
+        }
+
         public class QuadStruct
         {
 
@@ -28,15 +36,15 @@ namespace CS4100_Compiler_Project
 
         }
 
-        QuadStruct[] QuadTableArray = new QuadStruct[100];
+        QuadStruct[] QuadTableArray = new QuadStruct[MaxSymbols];
        
         // The QuadTable is different from the SymbolTable in its access and contents.Each indexed entry row
         //  consists of four int values representing an opcode and three operands.  The methods needed are:
 
-        public void Initialize()  // size and other parameters as needed
+        public static void Initialize()  // size and other parameters as needed
         // Create a new, empty QuadTable ready for data to be added, with the specified number of rows(size).
         {
-            //QuadStruct[] QuadTableArray = new QuadStruct[100];
+            QuadStruct[] QuadTableArray = new QuadStruct[100];
 			
 			
         }
@@ -57,7 +65,7 @@ namespace CS4100_Compiler_Project
 
         }
 
-        QuadStruct GetQuad(int index)
+        public QuadStruct GetQuad(int index)
         // Returns the data for the opcode and three operands located at index
         {
             return QuadTableArray[index];

@@ -10,45 +10,152 @@ namespace CS4100_Compiler_Project
     {
 
         public int PC;
-		public int OpCode, Op1, Op2, Op3 = 0; // don't need these if passing QuadTable in
+        public int OpCode, Op1, Op2, Op3 = 0;
         public int MaxQuad = 1000;
         public bool TraceOn;
         public SymbolTable SymbolTable;
         public QuadTable QuadTable;
 
-
         public Interpreter() { }
-        
+
         public void IntrepretQuads(QuadTable quadTable, SymbolTable symbolTable, bool traceOn)
         {
             while (PC < MaxQuad)
             {
-                if (quadTable.OpCode<=16)
-				switch(QuadTable.OpCode)
-				{
-					case 0: // stop
-						Console.Writeline("Execution terminated by program stop");
-						PC = MaxQuad;
-						break;
+                // this could be compressed/refactored somehow
+                OpCode = quadTable.GetQuad(PC).OpCode;
+                Op1 = quadTable.GetQuad(PC).Op1;
+                Op2 = quadTable.GetQuad(PC).Op2;
+                Op3 = quadTable.GetQuad(PC).Op3;
 
-					case 1: // div
-						symbolTable[PC].Op3 = symbolTable[PC].Op1 / symbolTable[PC].Op2;
-						PC++1;
-						break;
+                if (OpCode <= 16)
+                    switch (OpCode)
+                    {
+                        case 0: // stop
+                            Console.WriteLine("Execution terminated by program stop");
+                            PC = MaxQuad;
+                            break;
 
-					case 8: // bnz
-						if (SymbolTable[PC].Op1 <> 0)
-						{
-							PC = Quadtable[PC].Op3
-						}
-						else
-						{
-							PC++1;
-						}
-						break;
+                        case 1: // div
+                            // need separate casting types here, double?
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) / (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            PC++;
+                            break;
 
-				}
-				
+                        case 2: // mul
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) * (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            PC++;
+                            break;
+
+                        case 3: // sub
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) - (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            PC++;
+                            break;
+
+                        case 4: // sub
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) + (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            PC++;
+                            break;
+
+                        case 5: // mov
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value);
+                            PC++;
+                            break;
+
+                        case 6: // sti
+                            // is this the correct way to offset 2 with 3
+                            SymbolTable.SymbolTableArray[Op1].Value = (int)(SymbolTable.SymbolTableArray[Op2].Value) + (int)(SymbolTable.SymbolTableArray[Op3].Value);
+                            PC++;
+                            break;
+
+                        case 7: // ldi
+                            // is this the correct way to offset 1 with 2
+                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) + (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            PC++;
+                            break;
+
+
+                        case 8: // bnz
+                            if (Op1 != 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 9: // bnp
+                            if (Op1 <= 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 10: // bnn
+                            if (Op1 >= 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 11: // bz
+                            if (Op1 == 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 12: // bp
+                            if (Op1 > 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 13: // bn
+                            if (Op1 < 0)
+                            {
+                                PC = quadTable.GetQuad(PC).Op3;
+                            }
+                            else
+                            {
+                                PC++;
+                            }
+                            break;
+
+                        case 14: // br
+                            PC = quadTable.GetQuad(PC).Op3;
+                            PC++;
+                            break;
+
+                        case 15: // bindr
+                            PC = (int)SymbolTable.SymbolTableArray[Op3].Value;
+                            break;
+
+                        case 16:
+                            Console.WriteLine((string)SymbolTable.SymbolTableArray[PC].Name + "\t" + (int)SymbolTable.SymbolTableArray[Op1].Value);
+                            break;
+                    }
+
+
 
             }
 
