@@ -56,7 +56,7 @@ namespace CS4100_Compiler_Project
         public int NextQuad()
         // Returns the int index of the next open slot in the QuadTable. Very important during code generation, this must be implemented exactly as described.
         {
-            return ++NumUsed;
+            return NumUsed++;
         }
 
 

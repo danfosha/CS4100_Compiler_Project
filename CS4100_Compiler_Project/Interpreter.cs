@@ -13,8 +13,8 @@ namespace CS4100_Compiler_Project
         public int OpCode, Op1, Op2, Op3 = 0;
         public int MaxQuad = 1000;
         public bool TraceOn;
-        public SymbolTable SymbolTable;
-        public QuadTable QuadTable;
+        //public SymbolTable SymbolTable;
+        //public QuadTable QuadTable;
 
         public Interpreter() { }
 
@@ -38,39 +38,39 @@ namespace CS4100_Compiler_Project
 
                         case 1: // div
                             // need separate casting types here, double?
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) / (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) / (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
                         case 2: // mul
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) * (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) * (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
                         case 3: // sub
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) - (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) - (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
                         case 4: // sub
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) + (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) + (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
                         case 5: // mov
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value);
                             PC++;
                             break;
 
                         case 6: // sti
                             // is this the correct way to offset 2 with 3
-                            SymbolTable.SymbolTableArray[Op1].Value = (int)(SymbolTable.SymbolTableArray[Op2].Value) + (int)(SymbolTable.SymbolTableArray[Op3].Value);
+                            symbolTable.SymbolTableArray[Op1].Value = (int)(symbolTable.SymbolTableArray[Op2].Value) + (int)(symbolTable.SymbolTableArray[Op3].Value);
                             PC++;
                             break;
 
                         case 7: // ldi
                             // is this the correct way to offset 1 with 2
-                            SymbolTable.SymbolTableArray[Op3].Value = (int)(SymbolTable.SymbolTableArray[Op1].Value) + (int)(SymbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) + (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
@@ -147,11 +147,11 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 15: // bindr
-                            PC = (int)SymbolTable.SymbolTableArray[Op3].Value;
+                            PC = (int)symbolTable.SymbolTableArray[Op3].Value;
                             break;
 
                         case 16:
-                            Console.WriteLine((string)SymbolTable.SymbolTableArray[PC].Name + "\t" + (int)SymbolTable.SymbolTableArray[Op1].Value);
+                            Console.WriteLine((string)symbolTable.SymbolTableArray[PC].Name + "\t" + (int)symbolTable.SymbolTableArray[Op1].Value);
                             break;
                     }
 

@@ -13,7 +13,7 @@ namespace CS4100_Compiler_Project
         // used for both applications.  Each indexed entry is a pair consisting of a name string and an integer code.
         // The table as we use it is static, and intialized once at the start of the program, and then used only for
         // lookups later on.
-        
+
 
         public class ReserveTableData
         {
@@ -27,9 +27,9 @@ namespace CS4100_Compiler_Project
             public int Code { get; set; }
 
         }
-        
+
         static ReserveTableData[] ReserveTable = new ReserveTableData[100];
-        
+
         // The needed methods are:
 
         public void Initialize()
@@ -102,7 +102,7 @@ namespace CS4100_Compiler_Project
             return "";
         }
 
-        
+
 
         public void PrintReserveTable()
         // Prints the currently used contents of the Reserve table in neat tabular format
@@ -111,7 +111,10 @@ namespace CS4100_Compiler_Project
             Console.WriteLine("***************************");
             foreach (ReserveTableData ReserveData in ReserveTable)
             {
-                Console.WriteLine(ReserveData.Name + "\t" + ReserveData.Code);
+                if (ReserveData != null)
+                {
+                    Console.WriteLine(ReserveData.Name + "\t" + ReserveData.Code);
+                }
             }
         }
     }

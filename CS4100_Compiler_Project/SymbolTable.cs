@@ -11,13 +11,13 @@ namespace CS4100_Compiler_Project
         // Properties    
         public enum Data_Kind { label, variable, constant }
         public static int numUsed = 0;
-        static int MaxSymbols;
+        static int MaxSymbols = 100;
 
         public SymbolTable(int maxSymbols)
         {
-            MaxSymbols = maxSymbols;            
+            MaxSymbols = maxSymbols;
         }
-        
+
         public class Symbol
         {
             //public Symbol() { }
@@ -31,7 +31,7 @@ namespace CS4100_Compiler_Project
             }
 
             public string Name { get; set; }
-            public Data_Kind Kind {get; set;}
+            public Data_Kind Kind { get; set; }
             public Type Data_type { get; set; }
             public object Value { get; set; }
 
@@ -47,22 +47,24 @@ namespace CS4100_Compiler_Project
         // These three could be combind, but keeping all three per assignment instructions
 
         public int AddSymbol(String symbol, Data_Kind Kind, int value)
-            {
-            
+        {
+
             int index = LookupSymbol(symbol);
-            if (index <0)
-                {
-                SymbolTableArray[SymbolTableArray.Length + 1] = new Symbol(symbol, Kind, value);
-                }
+            if (index < 0)
+            {
+                SymbolTableArray[numUsed] = new Symbol(symbol, Kind, value);
+                numUsed++;
+            }
 
             return LookupSymbol(symbol);
         }
         public int AddSymbol(String symbol, Data_Kind Kind, double value)
         {
             int index = LookupSymbol(symbol);
-            if (index < 0)
+            if (index <0)
             {
-                SymbolTableArray[SymbolTableArray.Length + 1] = new Symbol(symbol, Kind, value);
+                SymbolTableArray[numUsed] = new Symbol(symbol, Kind, value);
+                numUsed++;
             }
 
             return LookupSymbol(symbol);
@@ -73,27 +75,30 @@ namespace CS4100_Compiler_Project
             int index = LookupSymbol(symbol);
             if (index < 0)
             {
-                SymbolTableArray[SymbolTableArray.Length + 1] = new Symbol(symbol, Kind, value);
+                SymbolTableArray[numUsed] = new Symbol(symbol, Kind, value);
+                numUsed++;
             }
 
             return LookupSymbol(symbol);
         }
 
-        int LookupSymbol(String symbol)
+        int LookupSymbol(string symbol)
         //// Returns the index where symbol is found, or -1 if not in the table 
         {
             int i = 0;
             foreach (Symbol test_symbol in SymbolTableArray)
             {
-                if (test_symbol.Name.Equals(symbol))
-                    return i;
-                i++;
-
+                if (test_symbol != null)
+                {
+                    if (test_symbol.Name.Equals(symbol))
+                        return i;
+                    i++;
+                }
             }
             return -1;
 
         }
-      
+
 
         Symbol GetSymbol(int index)
         //// Return kind, data type, and value fields stored at index
@@ -133,7 +138,7 @@ namespace CS4100_Compiler_Project
             // updated.Data_type = value.GetType();
             SymbolTableArray[index] = updated;
         }
-        
+
         public void PrintSymbolTable()
         //// Prints the utilized rows of the symbol table in neat tabular format, showing only
         //// the value field which is active for that row
@@ -141,12 +146,11 @@ namespace CS4100_Compiler_Project
             Console.WriteLine("Name" + "\t" + "Kind" + "\t" + "Type" + "\t" + "Value");
             foreach (Symbol test_symbol in SymbolTableArray)
             {
-                Console.WriteLine(test_symbol.Name + "\t" + test_symbol.Kind + "\t" + test_symbol.Data_type + "\t" + test_symbol.Value);
+                if (test_symbol != null)
+                {
+                    Console.WriteLine(test_symbol.Name + "\t" + test_symbol.Kind + "\t" + test_symbol.Data_type + "\t" + test_symbol.Value);
+                }
             }
-          
         }
-       
-
-
     }
 }
