@@ -10,9 +10,11 @@ namespace CS4100_Compiler_Project
     {
         static void Main(string[] args)
         {
+            // make constant
             int MaxQuad = 100;
             QuadTable Quads = new QuadTable(MaxQuad);
             ReserveTableClass Reserves = new ReserveTableClass();
+            
             SymbolTable Symbols = new SymbolTable(MaxQuad);
 
             BuildQuads(Quads, Reserves);
@@ -25,7 +27,6 @@ namespace CS4100_Compiler_Project
 
         // these are redundant
         public static void BuildQuads(QuadTable quads, ReserveTableClass reserve)
-        // not taking maxQuad yet
         {
 			quads.AddQuad(5,7,0,6);
             quads.AddQuad(5,7,0,5);

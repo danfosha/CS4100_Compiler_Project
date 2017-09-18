@@ -9,13 +9,17 @@ namespace CS4100_Compiler_Project
     class QuadTable
     {
 
-        static int MaxSymbols;
+        public int NumUsed = 0;
 
         public QuadTable(int maxSymbols)
         {
-            MaxSymbols = maxSymbols;
+            {
+                MaxSymbols = maxSymbols;
+            }
 
         }
+
+        static int MaxSymbols = 100;
 
         public class QuadStruct
         {
@@ -36,23 +40,23 @@ namespace CS4100_Compiler_Project
 
         }
 
+
         QuadStruct[] QuadTableArray = new QuadStruct[MaxSymbols];
-       
+
         // The QuadTable is different from the SymbolTable in its access and contents.Each indexed entry row
         //  consists of four int values representing an opcode and three operands.  The methods needed are:
 
         public static void Initialize()  // size and other parameters as needed
         // Create a new, empty QuadTable ready for data to be added, with the specified number of rows(size).
         {
-            QuadStruct[] QuadTableArray = new QuadStruct[100];
-			
-			
+            //QuadStruct[] QuadTableArray = new QuadStruct[100];
+
         }
 
-        int NextQuad()
+        public int NextQuad()
         // Returns the int index of the next open slot in the QuadTable. Very important during code generation, this must be implemented exactly as described.
         {
-            return SymbolTable.numUsed + 1;
+            return ++NumUsed;
         }
 
 
@@ -60,6 +64,7 @@ namespace CS4100_Compiler_Project
         // Expands the active length of the quad table by adding a new row at the NextQuad slot, with the parameters sent as the new contents, 
         // and increments the NextQuad counter to the next available(empty) index.}
         {
+            //int nextQuadSpace = NextQuad();
 
             QuadTableArray[NextQuad()] = new QuadStruct(opcode, op1, op2, op3);
 
@@ -96,7 +101,10 @@ namespace CS4100_Compiler_Project
             Console.WriteLine("***************************************************");
             foreach (QuadStruct Quad in QuadTableArray)
             {
-                Console.WriteLine(Quad.OpCode + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
+                if (Quad != null)
+                {
+                    Console.WriteLine(Quad.OpCode.ToString() + "\t" + Quad.Op1.ToString() + "\t" + Quad.Op2.ToString() + "\t" + Quad.Op3.ToString());
+                }
             }
 
         }

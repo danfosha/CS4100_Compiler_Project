@@ -29,13 +29,12 @@ namespace CS4100_Compiler_Project
         }
         
         static ReserveTableData[] ReserveTable = new ReserveTableData[100];
-
+        
         // The needed methods are:
 
         public void Initialize()
         // Constructor, as needed.
         {
-
             ReserveTable[0] = new ReserveTableData("STOP", 0);
             ReserveTable[1] = new ReserveTableData("DIV", 1);
             ReserveTable[2] = new ReserveTableData("MUL", 2);
