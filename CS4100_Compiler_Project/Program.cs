@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CS4100_Compiler_Project
 {
     class Program
+    // Fosha CS4100 Project 1 Fall 2017
     {
         static void Main(string[] args)
         {
@@ -26,7 +27,7 @@ namespace CS4100_Compiler_Project
 			
         }
 
-        // these are redundant
+        // these are redundant?
         public static void BuildQuads(QuadTable quads, ReserveTableClass reserve)
         {
             quads.AddQuad(5, 7, 0, 6);
