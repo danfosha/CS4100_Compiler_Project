@@ -22,6 +22,7 @@ namespace CS4100_Compiler_Project
 
             InterpretQuads(Quads, Symbols, true);
             InterpretQuads(Quads, Symbols, false);
+            Console.ReadLine();
 			
         }
 
@@ -39,6 +40,7 @@ namespace CS4100_Compiler_Project
             quads.AddQuad(16,0,0,0);
             quads.AddQuad(0,0,0,2);
             quads.PrintQuadTable();
+            reserve.Initialize();
             reserve.PrintReserveTable();
         }
 
@@ -51,11 +53,11 @@ namespace CS4100_Compiler_Project
             symbolTable.AddSymbol("$4", SymbolTable.Data_Kind.variable, 80);
             symbolTable.AddSymbol("i", SymbolTable.Data_Kind.variable, 0);
             symbolTable.AddSymbol("sum", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("$1", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("$2", SymbolTable.Data_Kind.variable, 5);
-            symbolTable.AddSymbol("$3", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("$4", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("$5", SymbolTable.Data_Kind.variable, 1);
+            symbolTable.AddSymbol("$5", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$6", SymbolTable.Data_Kind.constant, 5);
+            symbolTable.AddSymbol("$7", SymbolTable.Data_Kind.constant, 0);
+            symbolTable.AddSymbol("$8", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("$9", SymbolTable.Data_Kind.constant, 1);
 
             symbolTable.PrintSymbolTable();
         }

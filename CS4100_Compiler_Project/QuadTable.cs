@@ -98,7 +98,7 @@ namespace CS4100_Compiler_Project
         //Prints the currently used contents of the Quad table in neat tabular format
         {
             Console.WriteLine("OpCode" + "\t" + "Op1" + "\t" + "Op2" + "\t" + "Op3");
-            Console.WriteLine("***************************************************");
+            Console.WriteLine("***********************");
             foreach (QuadStruct Quad in QuadTableArray)
             {
                 if (Quad != null)
@@ -106,6 +106,7 @@ namespace CS4100_Compiler_Project
                     Console.WriteLine(Quad.OpCode.ToString() + "\t" + Quad.Op1.ToString() + "\t" + Quad.Op2.ToString() + "\t" + Quad.Op3.ToString());
                 }
             }
+            Console.WriteLine("\n");
 
         }
 

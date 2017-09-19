@@ -25,8 +25,8 @@ namespace CS4100_Compiler_Project
             {
 
                 Name = name;
-                Data_Kind Kind = kind;
-                Type Data_type = value.GetType();
+                Kind = kind;
+                Data_type = value.GetType();
                 Value = value;
             }
 
@@ -144,13 +144,15 @@ namespace CS4100_Compiler_Project
         //// the value field which is active for that row
         {
             Console.WriteLine("Name" + "\t" + "Kind" + "\t" + "Type" + "\t" + "Value");
+            Console.WriteLine("***********************");
             foreach (Symbol test_symbol in SymbolTableArray)
             {
                 if (test_symbol != null)
                 {
-                    Console.WriteLine(test_symbol.Name + "\t" + test_symbol.Kind + "\t" + test_symbol.Data_type + "\t" + test_symbol.Value);
+                    Console.WriteLine(test_symbol.Name + "\t" + test_symbol.Kind.ToString() + "\t" + test_symbol.Data_type.ToString() + "\t" + test_symbol.Value);
                 }
             }
+            Console.WriteLine("\n");
         }
     }
 }

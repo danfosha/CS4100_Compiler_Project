@@ -29,6 +29,7 @@ namespace CS4100_Compiler_Project
         }
 
         static ReserveTableData[] ReserveTable = new ReserveTableData[100];
+        
 
         // The needed methods are:
 
@@ -108,7 +109,7 @@ namespace CS4100_Compiler_Project
         // Prints the currently used contents of the Reserve table in neat tabular format
         {
             Console.WriteLine("Name" + "\t" + "Code");
-            Console.WriteLine("***************************");
+            Console.WriteLine("***********************");
             foreach (ReserveTableData ReserveData in ReserveTable)
             {
                 if (ReserveData != null)
@@ -116,6 +117,7 @@ namespace CS4100_Compiler_Project
                     Console.WriteLine(ReserveData.Name + "\t" + ReserveData.Code);
                 }
             }
+            Console.WriteLine("\n");
         }
     }
 }
