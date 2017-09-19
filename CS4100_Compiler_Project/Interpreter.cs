@@ -143,7 +143,6 @@ namespace CS4100_Compiler_Project
 
                         case 14: // br
                             PC = quadTable.GetQuad(PC).Op3;
-                            PC++;
                             break;
 
                         case 15: // bindr
@@ -152,6 +151,7 @@ namespace CS4100_Compiler_Project
 
                         case 16:
                             Console.WriteLine((string)symbolTable.SymbolTableArray[PC].Name + "\t" + (int)symbolTable.SymbolTableArray[Op1].Value);
+                            PC++;
                             break;
                     }
 
