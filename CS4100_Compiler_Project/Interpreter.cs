@@ -11,7 +11,7 @@ namespace CS4100_Compiler_Project
 
         public int PC;
         public int OpCode, Op1, Op2, Op3 = 0;
-        public int MaxQuad = 1000;
+        public int MaxQuad = 100;
         public bool TraceOn;
         //public SymbolTable SymbolTable;
         //public QuadTable QuadTable;
@@ -155,7 +155,10 @@ namespace CS4100_Compiler_Project
                             break;
                     }
 
-
+                if ((traceOn) & (PC!=MaxQuad))
+                {
+                    Console.WriteLine("PC = " + PC + ": " + OpCode + ", " + Op1 + ", " + Op2 + ", " + Op3 );
+                }
 
             }
 
