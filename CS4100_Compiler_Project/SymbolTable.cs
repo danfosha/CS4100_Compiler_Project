@@ -11,7 +11,7 @@ namespace CS4100_Compiler_Project
     {
         // Properties    
         public enum Data_Kind { label, variable, constant }
-        public int numUsed = 0;
+        protected int numUsed = 0;
         static int MaxSymbols = 100;
 
         public SymbolTable(int maxSymbols)

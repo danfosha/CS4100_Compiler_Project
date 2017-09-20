@@ -10,7 +10,7 @@ namespace CS4100_Compiler_Project
     class QuadTable
     {
 
-        public int NumUsed = 0;
+        protected int NumUsed = 0;
 
         public QuadTable(int maxSymbols)
         {
