@@ -144,13 +144,13 @@ namespace CS4100_Compiler_Project
         //// Prints the utilized rows of the symbol table in neat tabular format, showing only
         //// the value field which is active for that row
         {
-            Console.WriteLine("Name" + "\t" + "Kind" + "\t\t" + "Type" + "\t\t" + "Value");
-            Console.WriteLine("***************************************");
+            Console.WriteLine("Name" + "\t\t\t" + "Kind" + "\t\t" + "Type" + "\t\t" + "Value");
+            Console.WriteLine("***************************************************************");
             foreach (Symbol test_symbol in SymbolTableArray)
             {
                 if (test_symbol != null)
                 {
-                    Console.WriteLine(test_symbol.Name + "\t" + test_symbol.Kind + "\t" + test_symbol.Data_type + "\t" + test_symbol.Value);
+                    Console.WriteLine(test_symbol.Name + "\t\t" + test_symbol.Kind + "\t" + test_symbol.Data_type + "\t" + test_symbol.Value);
                 }
             }
             Console.WriteLine("\n");

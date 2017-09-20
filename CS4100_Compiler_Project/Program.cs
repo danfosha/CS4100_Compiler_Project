@@ -76,17 +76,17 @@ namespace CS4100_Compiler_Project
 
         public static void BuildSymbolTable1(SymbolTable symbolTable)
         {
-            symbolTable.AddSymbol("score1", SymbolTable.Data_Kind.variable, 73);
-            symbolTable.AddSymbol("score2", SymbolTable.Data_Kind.variable, 65);
-            symbolTable.AddSymbol("score3", SymbolTable.Data_Kind.variable, 89);
-            symbolTable.AddSymbol("score4", SymbolTable.Data_Kind.variable, 93);
-            symbolTable.AddSymbol("score5", SymbolTable.Data_Kind.variable, 80);
-            symbolTable.AddSymbol("i", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("sum", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("0", SymbolTable.Data_Kind.constant, 0);
-            symbolTable.AddSymbol("num_of_scores", SymbolTable.Data_Kind.constant, 5);
-            symbolTable.AddSymbol("compare_result", SymbolTable.Data_Kind.constant, 0);
-            symbolTable.AddSymbol("temp_for_add", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("score1    ", SymbolTable.Data_Kind.variable, 73);
+            symbolTable.AddSymbol("score2    ", SymbolTable.Data_Kind.variable, 65);
+            symbolTable.AddSymbol("score3    ", SymbolTable.Data_Kind.variable, 89);
+            symbolTable.AddSymbol("score4    ", SymbolTable.Data_Kind.variable, 93);
+            symbolTable.AddSymbol("score5    ", SymbolTable.Data_Kind.variable, 80);
+            symbolTable.AddSymbol("i         ", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("sum       ", SymbolTable.Data_Kind.variable, 0);
+            symbolTable.AddSymbol("0         ", SymbolTable.Data_Kind.constant, 0);
+            symbolTable.AddSymbol("num_scores", SymbolTable.Data_Kind.constant, 5);
+            symbolTable.AddSymbol("comp_result", SymbolTable.Data_Kind.constant, 0);
+            symbolTable.AddSymbol("temp_add", SymbolTable.Data_Kind.variable, 0);
             symbolTable.AddSymbol("increment", SymbolTable.Data_Kind.constant, 1);
 
             symbolTable.PrintSymbolTable();
@@ -95,10 +95,10 @@ namespace CS4100_Compiler_Project
         public static void BuildSymbolTable2(SymbolTable symbolTable)
         {
             symbolTable.AddSymbol("n_factorial", SymbolTable.Data_Kind.variable, 10);
-            symbolTable.AddSymbol("product", SymbolTable.Data_Kind.variable, 1);
-            symbolTable.AddSymbol("i", SymbolTable.Data_Kind.variable, 2);
+            symbolTable.AddSymbol("product    ", SymbolTable.Data_Kind.variable, 1);
+            symbolTable.AddSymbol("i          ", SymbolTable.Data_Kind.variable, 2);
             symbolTable.AddSymbol("sub_compare", SymbolTable.Data_Kind.variable, 0);
-            symbolTable.AddSymbol("1", SymbolTable.Data_Kind.constant, 1);
+            symbolTable.AddSymbol("1          ", SymbolTable.Data_Kind.constant, 1);
           
 
             symbolTable.PrintSymbolTable();
@@ -107,8 +107,7 @@ namespace CS4100_Compiler_Project
         private static void InterpretQuads(QuadTable Q, SymbolTable S, bool TraceOn)
         {
             Interpreter interpreterTrace = new Interpreter();
-            interpreterTrace.IntrepretQuads(Q, S, TraceOn);
-            
+            interpreterTrace.IntrepretQuads(Q, S, TraceOn);            
         }
     }
 

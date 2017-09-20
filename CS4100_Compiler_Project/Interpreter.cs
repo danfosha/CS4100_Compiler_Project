@@ -23,17 +23,25 @@ namespace CS4100_Compiler_Project
         {
             while (PC < MaxQuad)
             {
-                // this could be compressed/refactored somehow
+                // this could be compressed/refactored somehow?
                 OpCode = quadTable.GetQuad(PC).OpCode;
                 Op1 = quadTable.GetQuad(PC).Op1;
                 Op2 = quadTable.GetQuad(PC).Op2;
                 Op3 = quadTable.GetQuad(PC).Op3;
 
                 if (OpCode <= 16)
-                    switch (OpCode)
+
+                    //
+                    if ((traceOn) & (PC != MaxQuad))
+                    {
+                        Console.WriteLine("PC = " + PC + ": " + quadTable.GetMnemonic(OpCode) + ", " + Op1 + ", " + Op2 + ", " + Op3);
+                    }
+
+                switch (OpCode)
                     {
                         case 0: // stop
                             Console.WriteLine("Execution terminated by program stop");
+                            Console.WriteLine();
                             PC = MaxQuad;
                             break;
 
@@ -155,11 +163,7 @@ namespace CS4100_Compiler_Project
                             PC++;
                             break;
                     }
-
-                if ((traceOn) & (PC!=MaxQuad))
-                {
-                    Console.WriteLine("PC = " + PC + ": " + OpCode + ", " + Op1 + ", " + Op2 + ", " + Op3 );
-                }
+                               
 
             }
 

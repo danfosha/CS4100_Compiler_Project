@@ -88,7 +88,7 @@ namespace CS4100_Compiler_Project
             QuadTableArray[index].Op3 = op3;
         }
 
-        string GetMnemonic(int opcode)
+        public string GetMnemonic(int opcode)
         // Returns the mnemonic string (‘ADD’, ‘PRINT’, etc.) associated with the opcode parameter. Used during interpreter
         // ‘TRACE’ mode to print out the stored opcodes in readable format. Use the ReserveTable ADT to implement this.
         {
@@ -106,7 +106,6 @@ namespace CS4100_Compiler_Project
                 if (Quad != null)
                 {
                     Console.WriteLine(GetMnemonic(Quad.OpCode) + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
-                    //Console.WriteLine(Quad.OpCode.ToString() + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
                 }
             }
             Console.WriteLine("\n");
