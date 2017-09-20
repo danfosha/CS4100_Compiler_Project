@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CS4100_Compiler_Project
 {
     class SymbolTable
+    // Fosha CS4100 Project 1 Fall 2017
     {
         // Properties    
         public enum Data_Kind { label, variable, constant }

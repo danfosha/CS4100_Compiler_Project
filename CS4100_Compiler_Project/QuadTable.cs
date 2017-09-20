@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CS4100_Compiler_Project
+// Fosha CS4100 Project 1 Fall 2017
 {
     class QuadTable
     {
