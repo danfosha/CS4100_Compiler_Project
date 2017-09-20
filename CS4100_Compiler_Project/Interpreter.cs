@@ -64,19 +64,19 @@ namespace CS4100_Compiler_Project
 
                         case 6: // sti
                             // is this the correct way to offset 2 with 3
-                            symbolTable.SymbolTableArray[Op1].Value = (int)(symbolTable.SymbolTableArray[Op2].Value) + (int)(symbolTable.SymbolTableArray[Op3].Value);
+                            symbolTable.SymbolTableArray[Op2 + (int)(symbolTable.SymbolTableArray[Op3].Value)].Value = (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
 
                         case 7: // ldi
                             // is this the correct way to offset 1 with 2
-                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) + (int)(symbolTable.SymbolTableArray[Op2].Value);
+                            symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1 + (int)(symbolTable.SymbolTableArray[Op2].Value)].Value);
                             PC++;
                             break;
 
 
                         case 8: // bnz
-                            if (Op1 != 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value != 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -87,7 +87,7 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 9: // bnp
-                            if (Op1 <= 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value <= 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -98,7 +98,7 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 10: // bnn
-                            if (Op1 >= 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value >= 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -109,7 +109,7 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 11: // bz
-                            if (Op1 == 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value == 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -120,7 +120,7 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 12: // bp
-                            if (Op1 > 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value > 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -131,7 +131,7 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 13: // bn
-                            if (Op1 < 0)
+                            if ((int)symbolTable.SymbolTableArray[Op1].Value < 0)
                             {
                                 PC = quadTable.GetQuad(PC).Op3;
                             }
@@ -149,8 +149,8 @@ namespace CS4100_Compiler_Project
                             PC = (int)symbolTable.SymbolTableArray[Op3].Value;
                             break;
 
-                        case 16:
-                            Console.WriteLine((string)symbolTable.SymbolTableArray[PC].Name + "\t" + (int)symbolTable.SymbolTableArray[Op1].Value);
+                        case 16: // print
+                            Console.WriteLine((string)symbolTable.SymbolTableArray[Op1].Name + "\t" + (int)symbolTable.SymbolTableArray[Op1].Value);
                             PC++;
                             break;
                     }
