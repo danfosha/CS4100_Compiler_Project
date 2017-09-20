@@ -50,8 +50,10 @@ namespace CS4100_Compiler_Project
             quads.AddQuad(14, 0, 0, 2);
             quads.AddQuad(16, 6, 0, 0);
             quads.AddQuad(0, 0, 0, 0);
-            quads.PrintQuadTable();
+            
             reserve.Initialize();
+
+            quads.PrintQuadTable();
             reserve.PrintReserveTable();
         }
 
@@ -65,8 +67,10 @@ namespace CS4100_Compiler_Project
             quads.AddQuad(16, 1, 0, 0);
             quads.AddQuad(0, 0, 0, 0);
 
-            quads.PrintQuadTable();
+
             reserve.Initialize();
+
+            quads.PrintQuadTable();
             reserve.PrintReserveTable();
         }
 

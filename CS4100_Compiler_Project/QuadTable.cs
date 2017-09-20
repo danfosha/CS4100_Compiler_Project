@@ -105,7 +105,8 @@ namespace CS4100_Compiler_Project
             {
                 if (Quad != null)
                 {
-                    Console.WriteLine(Quad.OpCode.ToString() + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
+                    Console.WriteLine(GetMnemonic(Quad.OpCode) + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
+                    //Console.WriteLine(Quad.OpCode.ToString() + "\t" + Quad.Op1 + "\t" + Quad.Op2 + "\t" + Quad.Op3);
                 }
             }
             Console.WriteLine("\n");
