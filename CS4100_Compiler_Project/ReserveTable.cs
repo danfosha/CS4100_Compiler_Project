@@ -16,6 +16,8 @@ namespace CS4100_Compiler_Project
         // lookups later on.
 
 
+        protected int numUsed = 0;
+
         public class ReserveTableData
         {
             public ReserveTableData(string name, int code)
@@ -30,48 +32,41 @@ namespace CS4100_Compiler_Project
         }
 
         static ReserveTableData[] ReserveTable = new ReserveTableData[100];
-        
+
 
         // The needed methods are:
 
         public void Initialize()
         // Constructor, as needed.
         {
-            ReserveTable[0] = new ReserveTableData("STOP", 0);
-            ReserveTable[1] = new ReserveTableData("DIV", 1);
-            ReserveTable[2] = new ReserveTableData("MUL", 2);
-            ReserveTable[3] = new ReserveTableData("SUB", 3);
-            ReserveTable[4] = new ReserveTableData("ADD", 4);
-            ReserveTable[5] = new ReserveTableData("MOV", 5);
-            ReserveTable[6] = new ReserveTableData("STI", 6);
-            ReserveTable[7] = new ReserveTableData("LDI", 7);
-            ReserveTable[8] = new ReserveTableData("BNZ", 8);
-            ReserveTable[9] = new ReserveTableData("BNP", 9);
-            ReserveTable[10] = new ReserveTableData("BNN", 10);
-            ReserveTable[11] = new ReserveTableData("BZ", 11);
-            ReserveTable[12] = new ReserveTableData("BP", 12);
-            ReserveTable[13] = new ReserveTableData("BN", 13);
-            ReserveTable[14] = new ReserveTableData("BR", 14);
-            ReserveTable[15] = new ReserveTableData("BINDR", 15);
-            ReserveTable[16] = new ReserveTableData("PRINT", 16);
+            int ReserveCount = 0; //  how to use this value later? Why return value for add function?
+
+            ReserveCount = Add("STOP", 0);
+            ReserveCount = Add("DIV", 1);
+            ReserveCount = Add("MUL", 2);
+            ReserveCount = Add("SUB", 3);
+            ReserveCount = Add("ADD", 4);
+            ReserveCount = Add("MOV", 5);
+            ReserveCount = Add("STI", 6);
+            ReserveCount = Add("LDI", 7);
+            ReserveCount = Add("BNZ", 8);
+            ReserveCount = Add("BNP", 9);
+            ReserveCount = Add("BNN", 10);
+            ReserveCount = Add("BZ", 11);
+            ReserveCount = Add("BP", 12);
+            ReserveCount = Add("BN", 13);
+            ReserveCount = Add("BR", 14);
+            ReserveCount = Add("BINDR", 15);
+            ReserveCount = Add("PRINT", 16);
 
         }
 
 
-        int Add(string name, int code)
+        public int Add(string name, int code)
         // Returns the index of the row where the data was placed; just adds to end of list.
         {
-            int notUsed = 0;
-            foreach (ReserveTableData Data in ReserveTable)
-            {
-                // check this conditional
-                if (ReserveTable[notUsed] == null)
-                {
-                    notUsed++;
-                }
-            }
-            ReserveTable[notUsed] = new ReserveTableData(name, code);
-            return notUsed;
+            ReserveTable[numUsed] = new ReserveTableData(name, code);
+            return numUsed++;
         }
 
 
