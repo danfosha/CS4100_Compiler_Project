@@ -21,10 +21,9 @@ namespace CS4100_Compiler_Project
 
         public class Symbol
         {
-            //public Symbol() { }
+            
             public Symbol(string name, Data_Kind kind, object value)
             {
-
                 Name = name;
                 Kind = kind;
                 Data_type = value.GetType();
@@ -40,7 +39,7 @@ namespace CS4100_Compiler_Project
 
         public Symbol[] SymbolTableArray = new Symbol[MaxSymbols];
 
-        //Methods
+        //  Methods
 
         // Adds symbol with given kind and value to the symbol table, automatically setting the correct data_type,
         // and returns the index where the symbol was located. If the symbol is already in the table, no change is made, and this just returns
@@ -97,14 +96,11 @@ namespace CS4100_Compiler_Project
                 }
             }
             return -1;
-
         }
-
-
+        
         Symbol GetSymbol(int index)
         //// Return kind, data type, and value fields stored at index
         {
-            // Don't return name? I'll return entire symbol object 
             return SymbolTableArray[index];
         }
 
@@ -115,9 +111,7 @@ namespace CS4100_Compiler_Project
             updated = SymbolTableArray[index];
             updated.Kind = Kind;
             updated.Value = value;
-            // updated.Data_type = value.GetType();
             SymbolTableArray[index] = updated;
-
         }
 
         void UpdateSymbol(int index, Data_Kind Kind, double value)
@@ -126,7 +120,6 @@ namespace CS4100_Compiler_Project
             updated = SymbolTableArray[index];
             updated.Kind = Kind;
             updated.Value = value;
-            // updated.Data_type = value.GetType();
             SymbolTableArray[index] = updated;
         }
 
@@ -136,7 +129,6 @@ namespace CS4100_Compiler_Project
             updated = SymbolTableArray[index];
             updated.Kind = Kind;
             updated.Value = value;
-            // updated.Data_type = value.GetType();
             SymbolTableArray[index] = updated;
         }
 

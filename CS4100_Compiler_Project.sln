@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS4100_Compiler_Project", "CS4100_Compiler_Project\CS4100_Compiler_Project.csproj", "{68A37D97-D144-4DDF-BF8C-5F329B560CB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS4100_Compiler_Project_Fosha", "CS4100_Compiler_Project\CS4100_Compiler_Project_Fosha.csproj", "{68A37D97-D144-4DDF-BF8C-5F329B560CB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,8 +10,9 @@ namespace CS4100_Compiler_Project
     {
         static void Main(string[] args)
         {
-            // make constant
             int MaxQuad = 100;
+
+            //Run one
             QuadTable Quads1 = new QuadTable(MaxQuad);
             ReserveTableClass Reserves = new ReserveTableClass();            
             SymbolTable Symbols1 = new SymbolTable(MaxQuad);
@@ -24,6 +25,7 @@ namespace CS4100_Compiler_Project
             Console.WriteLine("Press any key to continue to next run");
             Console.ReadKey();
 
+            // Run two
             QuadTable Quads2 = new QuadTable(MaxQuad);
             SymbolTable Symbols2 = new SymbolTable(MaxQuad);
 
@@ -36,8 +38,7 @@ namespace CS4100_Compiler_Project
             Console.ReadKey();
 
         }
-
-        // these are redundant
+        
         public static void BuildQuads1(QuadTable quads, ReserveTableClass reserve)
         {
             quads.AddQuad(5, 7, 0, 6);
@@ -66,8 +67,7 @@ namespace CS4100_Compiler_Project
             quads.AddQuad(14, 0, 0, 0);
             quads.AddQuad(16, 1, 0, 0);
             quads.AddQuad(0, 0, 0, 0);
-
-
+            
             reserve.Initialize();
 
             quads.PrintQuadTable();
@@ -100,7 +100,6 @@ namespace CS4100_Compiler_Project
             symbolTable.AddSymbol("sub_compare", SymbolTable.Data_Kind.variable, 0);
             symbolTable.AddSymbol("1          ", SymbolTable.Data_Kind.constant, 1);
           
-
             symbolTable.PrintSymbolTable();
         }
 

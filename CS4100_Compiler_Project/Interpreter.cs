@@ -159,8 +159,6 @@ namespace CS4100_Compiler_Project
                             PC++;
                             break;
                     }
-                               
-
             }
 
         }
