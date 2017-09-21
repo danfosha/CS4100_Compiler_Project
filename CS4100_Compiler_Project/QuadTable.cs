@@ -10,6 +10,7 @@ namespace CS4100_Compiler_Project
     class QuadTable
     {
 
+        static int MaxSymbols = 100;
         protected int NumUsed = 0;
 
         public QuadTable(int maxSymbols)
@@ -17,11 +18,8 @@ namespace CS4100_Compiler_Project
             {
                 MaxSymbols = maxSymbols;
             }
-
         }
-
-        static int MaxSymbols = 100;
-
+                
         public class QuadStruct
         {
 
@@ -50,9 +48,8 @@ namespace CS4100_Compiler_Project
         public static void Initialize()  // size and other parameters as needed
         // Create a new, empty QuadTable ready for data to be added, with the specified number of rows(size).
         {
-            // having trouble with access issues here
-            // how to construct new array and open to other methods
-
+            // I wasn't able to match signature of method with code that create an array 
+            // accessible to other methods with the method Initialize();
         }
 
         public int NextQuad()
@@ -66,8 +63,6 @@ namespace CS4100_Compiler_Project
         // Expands the active length of the quad table by adding a new row at the NextQuad slot, with the parameters sent as the new contents, 
         // and increments the NextQuad counter to the next available(empty) index.}
         {
-            //int nextQuadSpace = NextQuad();
-
             QuadTableArray[NextQuad()] = new QuadStruct(opcode, op1, op2, op3);
 
         }

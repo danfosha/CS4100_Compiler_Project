@@ -98,9 +98,7 @@ namespace CS4100_Compiler_Project
             }
             return "";
         }
-
-
-
+        
         public void PrintReserveTable()
         // Prints the currently used contents of the Reserve table in neat tabular format
         {

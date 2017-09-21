@@ -9,14 +9,11 @@ namespace CS4100_Compiler_Project
 {
     class Interpreter
     {
-
         public int PC;
         public int OpCode, Op1, Op2, Op3 = 0;
         public int MaxQuad = 100;
         public bool TraceOn;
-        //public SymbolTable SymbolTable;
-        //public QuadTable QuadTable;
-
+       
         public Interpreter() { }
 
         public void IntrepretQuads(QuadTable quadTable, SymbolTable symbolTable, bool traceOn)
@@ -46,7 +43,6 @@ namespace CS4100_Compiler_Project
                             break;
 
                         case 1: // div
-                            // need separate casting types here, double?
                             symbolTable.SymbolTableArray[Op3].Value = (int)(symbolTable.SymbolTableArray[Op1].Value) / (int)(symbolTable.SymbolTableArray[Op2].Value);
                             PC++;
                             break;
